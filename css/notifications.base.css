@@ -1,0 +1,147 @@
+#block-notificationblock {
+  display: inline-block;
+}
+
+.fa-bell {
+  top: 8px;
+  font-size: 16px;
+  line-height: 17px;
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+.dropdown-menu.notify-drop {
+  background: #fff!important;
+  margin: 0;
+  padding: 0;
+  left: unset !important;
+}
+.dropdown-menu.notify-drop .drop-content li a {
+  color: #333!important;
+}
+.notify-drop .drop-content li {
+  display: block;
+  padding: 10px 10px 10px 30px !important;
+  border-bottom: solid 1px #e5e5e5;
+  position: relative;
+}
+.notify-drop .drop-content li .fa {
+  position: absolute;
+  left: 13px;
+  top: 13px;
+  font-weight: bold;
+}
+.notify-drop .drop-content li a {
+  background: rgba(255,255,255,0)!important;
+  padding: 0!important;
+}
+.notify-drop .drop-content li: nth-last-child(1) {
+  border-bottom: 0px!important;
+  border-radius: 0 0 0px 0px;
+}
+.notify-drop .drop-content li: hover {
+  background: #f8f8f8;
+}
+.notify-drop-title {
+  padding: 11px 15px;
+  font-size: 15px;
+  background: #fff;
+}
+.drop-content {
+  border: solid 1px #e5e5e5;
+  border-radius: 0 0 0px 0px;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.notify-drop:after,
+.notify-drop:before {
+  bottom: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.notify-drop li.unread {
+  border-left: 4px solid #54bbba;
+}
+.notify-drop li.unread a {
+  font-weight: bold;
+}
+.notification-icon[data-count]:after{
+  position:absolute;
+  right:0%;
+  top:1%;
+  content: attr(data-count);
+  /* font-size:30%; */
+  font-size:60%;
+  padding:.6em;
+  border-radius:999px;
+  line-height:.75em;
+  color: white;
+  background:rgba(255,0,0,.85);
+  text-align:center;
+  min-width:2em;
+  font-weight:bold;
+}
+
+.actionable-notification-msg,
+.notification-items,
+.notification-msg {
+  font-size: 14px !important;
+}
+.clear-all-notification {
+  display: block;
+  text-align: center;
+  padding: 11px 10px;
+  cursor: pointer;
+}
+@media only screen and (min-width:  768px) {
+  .notify-drop:after,
+  .notify-drop:before {
+    right: 0;
+    left: 93%;
+  }
+}
+@media (min-width:  1200px) {
+  .dropdown-menu.notify-drop {
+    min-width: 300px;
+    right: -130px!important;
+  }
+}
+@media (min-width:  768px) and ( max-width:  1199px) {
+  .dropdown-menu.notify-drop {
+    min-width: 300px;
+    right: 0px!important;
+  }
+  .notify-drop: after,
+  .notify-drop: before {
+    right: 0;
+    left: 93%!important;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .dropdown-menu.notify-drop {
+    right: -70px!important;
+    min-width: 300px;
+    position: absolute!important;
+  }
+  .dropdown-menu: after,
+  .dropdown-menu: before {
+    left: 71%!important;
+  }
+  .dropdown-menu.notify-drop:before {
+    border-color: rgba(221, 221, 221, 0);
+    border-bottom-color: #fff;
+    border-width: 14px;
+    margin-left: -15px;
+  }
+  .dropdown-menu.notify-drop:after {
+    border-color: rgba(221, 221, 221, 0);
+    border-bottom-color: #fff;
+    border-width: 14px;
+    margin-left: -15px;
+  }
+}

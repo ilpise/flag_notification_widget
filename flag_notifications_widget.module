@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Contains flag_notifications_widget.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function flag_notifications_widget_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the flag_notifications_widget module.
+    case 'help.page.flag_notifications_widget':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Flag Notifications Widget') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+function flag_notifications_widget_theme($existing, $type, $theme, $path) {
+  return [
+    'flag_notifications_widget' => [
+      'variables' => [
+        'uid' => NULL,
+        'notification_type' => NULL,
+        'total' => NULL,
+        'unread' => NULL,
+        'notification_list' => NULL,
+      ],
+    ],
+  ];
+}

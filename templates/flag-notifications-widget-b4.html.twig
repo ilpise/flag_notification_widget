@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Theme implementation for FYI notification.
+ */
+#}
+
+<ul class="nav navbar-nav navbar-right">
+  <li class="dropdown">
+    <a href="#notifications-panel" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+      {% if unread > 0 %}
+      <span id="notificationcount" class="notification-icon fa-stack fa-1x" data-count="{{ unread }}">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="far fa-bell fa-stack-1x fa-inverse"></i>
+      </span>
+      {% else %}
+        <i class="far fa-bell-slash"></i>
+      {% endif %}
+    </a>
+    <ul class="dropdown-menu notify-drop">
+      <div class="notify-drop-title fyi-notification">
+        {% if unread > 1 %}
+          {% trans %} You have {{ unread }} unread notifications {% endtrans %}
+        {% elseif unread > 0 %}
+          {% trans %} You have {{ unread }} unread notification {% endtrans %}
+        {% endif %}
+        {% if unread == 0 %}
+          {% trans %} You have no unread notifications {% endtrans %}
+        {% endif %}
+      </div>
+      <!-- end notify title -->
+      <!-- notify content -->
+      <div class="drop-content">
+        {% for notifications in notification_list %}
+          <li flag-id="{{  notifications.flag_id }}" data-read-status = "{{ notifications.status ? 'read' : 'unread' }}" class="notification-items {{ notifications.status ? 'read' : 'unread' }}">
+            <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+            <span class="notification-msg"><a target="_blank" href="/node/{{ notifications.id }}">{{ notifications.message | raw }}</a></span>
+            <span class="float-right notification-remove"><i class="far fa-trash-alt"></i></span>
+          </li>
+        {% endfor %}
+      </div>
+      {% if total > 0 %}
+        <span class="clear-all-notification" data-uid="{{ uid }}" data-notification-type = "{{ notification_type }}">Clear All</span>
+      {% endif %}
+    </ul>
+  </li>
+</ul>

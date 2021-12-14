@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - flag
+    - serialization
+    - user
+id: entity.flagging
+plugin_id: 'entity:flagging'
+granularity: resource
+configuration:
+  methods:
+    - GET
+    - POST
+    - DELETE
+  formats:
+    - json
+  authentication:
+    - basic_auth
+    - cookie

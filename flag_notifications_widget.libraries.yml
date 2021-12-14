@@ -1,0 +1,14 @@
+flag_notifications_widget:
+  version: VERSION
+  js:
+    js/notifications.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
+    - core/drupal.ajax
+  css:
+    component:
+      css/notifications.base.css: {}
+      css/dropdownmenu.css: {}
