@@ -5,13 +5,13 @@
  */
 #}
 
-<div class="collapse navbar-collapse">
-    <ul class="navbar-nav">
+<!-- <div class="collapse navbar-collapse"> -->
+    <ul class="navbar-nav d-inline">
       <li class="nav-item dropdown">
         <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Dropdown
         </a> -->
-        <a <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link dropdown-toggle d-inline" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           {% if unread > 0 %}
           <span id="notificationcount" class="notification-icon fa-stack fa-1x" data-count="{{ unread }}">
             <i class="fa fa-circle fa-stack-2x"></i>
@@ -21,7 +21,7 @@
             <i class="far fa-bell-slash"></i>
           {% endif %}
         </a>
-        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+        <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
           <div class="notify-drop-title fyi-notification">
             {% if unread > 1 %}
               {% trans %} You have {{ unread }} unread notifications {% endtrans %}
@@ -43,9 +43,9 @@
             {% endfor %}
           </div>
           {% if total > 0 %}
-            <span class="clear-all-notification" data-uid="{{ uid }}" data-notification-type = "{{ notification_type }}">Clear All</span>
+            <!-- <span class="clear-all-notification" data-uid="{# {{ uid }} #}" data-notification-type = "{# {{ notification_type }} #}">Clear All</span> -->
           {% endif %}
         </ul>
       </li>
     </ul>
-</div>
+<!-- </div> -->
