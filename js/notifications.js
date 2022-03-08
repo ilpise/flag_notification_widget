@@ -83,20 +83,21 @@
       /**
        * Clear-all the notification list.
        */
-      $('.clear-all-notification').once().click(function () {
+      $('.clear-all-notification').once().click(function (event) {
+        event.stopPropagation();
+
+        $('#flag_notification_list > div > li').each(function( index ) {
+          // console.log( index + ": " + $( this ).text() );
+          // console.log($( this ).attr('flag-id'));
+          var flagId = $( this ).attr('flag-id');
+          getCsrfToken(function (csrfToken) {
+            deleteNotification(csrfToken, flagId, '/');
+          });
+        });
+
         var ele = $(this);
-        var notiType = ele.attr('data-notification-type');
-        var notiUid = ele.attr('data-uid');
-        var notiData = {
-          'notification_action': 'clearall',
-          'notification_type': notiType,
-          'uid': notiUid,
-        };
-
-
         // Request send to clear all from list.
         getCsrfToken(function (csrfToken) {
-          updateNotification(csrfToken, notiData, '/');
           itemsStatusChanged(ele, 0, 'clearall');
         });
       });

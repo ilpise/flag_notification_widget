@@ -21,7 +21,7 @@
             <i class="far fa-bell-slash"></i>
           {% endif %}
         </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+        <ul id="flag_notification_list" class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
           <div class="notify-drop-title fyi-notification">
             {% if unread > 1 %}
               {% trans %} You have {{ unread }} unread notifications {% endtrans %}
@@ -43,7 +43,7 @@
             {% endfor %}
           </div>
           {% if total > 0 %}
-            <!-- <span class="clear-all-notification" data-uid="{# {{ uid }} #}" data-notification-type = "{# {{ notification_type }} #}">Clear All</span> -->
+            <span class="clear-all-notification" data-uid="{{ uid }}" data-notification-type = "{{ notification_type }}">Clear All</span>
           {% endif %}
         </ul>
       </li>
